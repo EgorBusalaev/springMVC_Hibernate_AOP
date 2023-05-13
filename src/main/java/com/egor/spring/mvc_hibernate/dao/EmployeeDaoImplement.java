@@ -16,7 +16,6 @@ public class EmployeeDaoImplement implements EmployeeDAO {
     private SessionFactory sessionFactory;
 
     @Override
-    @Transactional
     public List<Employee> getAllEmployees() {
 
 
