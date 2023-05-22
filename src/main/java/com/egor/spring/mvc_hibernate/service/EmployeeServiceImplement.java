@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 import javax.transaction.Transactional;
 import java.util.List;
 @Service
-public class EmployeeServiceImplement implements EmployeeService{
+public class EmployeeServiceImplement implements EmployeeService {
     @Autowired
     private EmployeeDAO employeeDAO;
 
@@ -21,6 +21,15 @@ public class EmployeeServiceImplement implements EmployeeService{
     @Override
     @Transactional
     public void saveEmployee(Employee employee) {
-employeeDAO.saveEmployee(employee);
+        employeeDAO.saveEmployee(employee);
     }
+
+    @Override
+    @Transactional
+    public Employee getEmployee(int id) {
+        return employeeDAO.getEmployee(id);
+    }
+
 }
+
+
