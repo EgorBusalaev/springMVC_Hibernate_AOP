@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
+
 @Service
 public class EmployeeServiceImplement implements EmployeeService {
     @Autowired
@@ -28,6 +29,12 @@ public class EmployeeServiceImplement implements EmployeeService {
     @Transactional
     public Employee getEmployee(int id) {
         return employeeDAO.getEmployee(id);
+    }
+
+    @Override
+    @Transactional
+    public void deleteEmployee(int id) {
+        employeeDAO.deleteEmployee(id);
     }
 
 }

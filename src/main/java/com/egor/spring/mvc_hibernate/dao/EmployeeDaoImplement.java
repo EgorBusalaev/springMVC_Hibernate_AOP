@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
 import java.util.List;
+
 @Repository // аннотация используется при поиске компронентов для DAO
 public class EmployeeDaoImplement implements EmployeeDAO {
 
@@ -40,6 +41,14 @@ public class EmployeeDaoImplement implements EmployeeDAO {
         Employee employee = session.get(Employee.class, id);
 
         return employee;
+    }
+
+    @Override
+    public void deleteEmployee(int id) {
+        Session session = sessionFactory.getCurrentSession();
+        Query<Employee> query = session.createQuery("delete from Employee where id =:employeeId");
+        query.setParameter("employeeId", id);
+        query.executeUpdate();
     }
 
 }
